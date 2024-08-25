@@ -1,6 +1,4 @@
-## React Redux Shadcn Tailwind Project Starter
-
-This is a frontend starter pack using React, Redux, Shadcn, Tailwind CSS, and TypeScript.
+## Car Rental Reservation System Frontend
 
 ### Prerequisites
 
@@ -12,15 +10,6 @@ This is a frontend starter pack using React, Redux, Shadcn, Tailwind CSS, and Ty
 - Zod
 
 ### Installation
-
-**Install using npx**
-
-1. # Create a new project using the template:
-
-```
-npx @atik203/react-shadcn-tailwind-starter my-project
-
-```
 
 1. Clone the repository:
 
