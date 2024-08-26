@@ -1,6 +1,7 @@
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import MainLayout from "@/components/layout/MainLayout";
 import About from "@/pages/About";
+import Booking from "@/pages/Booking";
 import Contact from "@/pages/Contact";
 import ErrorPage from "@/pages/ErrorPage";
 import Home from "@/pages/Home";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/booking",
+        element: <Booking />,
       },
     ],
   },
