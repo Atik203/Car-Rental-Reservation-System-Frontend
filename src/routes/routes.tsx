@@ -1,14 +1,29 @@
-import AdminLayout from "@/components/layout/AdminLayout";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import MainLayout from "@/components/layout/MainLayout";
+
 import { routeGenerator } from "@/utils/routeGenerator";
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import Login from "./../pages/Login";
+
+import Home from "@/pages/Home";
+import Login from "@/pages/Login";
+import Register from "@/pages/Register";
 import { adminPaths } from "./admin.routes";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ],
+  },
+
+  {
+    path: "/admin",
+    element: <DashboardLayout />,
     children: routeGenerator(adminPaths),
   },
   {
@@ -16,9 +31,8 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/admin",
-    element: <AdminLayout />,
-    children: routeGenerator(adminPaths),
+    path: "/register",
+    element: <Register />,
   },
 ]);
 
