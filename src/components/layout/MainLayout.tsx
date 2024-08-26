@@ -1,10 +1,15 @@
 import { Outlet } from "react-router-dom";
+import { ModeToggle } from "../ui/mode-toggle";
+import { ThemeProvider } from "../ui/theme-provider";
 
 const MainLayout = () => {
   return (
-    <div>
-      <Outlet />
-    </div>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div>
+        <ModeToggle />
+        <Outlet />
+      </div>
+    </ThemeProvider>
   );
 };
 
