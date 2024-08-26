@@ -2,6 +2,7 @@ import DashboardLayout from "@/components/layout/DashboardLayout";
 import MainLayout from "@/components/layout/MainLayout";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import ErrorPage from "@/pages/ErrorPage";
 import Home from "@/pages/Home";
 import Login from "@/pages/Login";
 import SignUp from "@/pages/Signup";
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: <div>404</div>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
