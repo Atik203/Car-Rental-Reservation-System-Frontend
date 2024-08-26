@@ -21,7 +21,6 @@ function classNames(...classes: string[]) {
 
 const menuItems = [
   { name: "Home", to: "/" },
-  { name: "Products", to: "/products" },
   { name: "About Us", to: "/about-us" },
   { name: "Contact Us", to: "/contact-us" },
 ];
