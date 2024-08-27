@@ -1,3 +1,4 @@
+import CustomButton from "@/components/ui/custom/customUI/CustomButton";
 import { Link } from "react-router-dom";
 
 export default function ErrorPage() {
@@ -15,11 +16,8 @@ export default function ErrorPage() {
             Sorry, we couldn’t find the page you’re looking for.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              to="/"
-              className="rounded-md bg-primary dark:bg-primary-light px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 dark:hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:focus-visible:outline-indigo-500"
-            >
-              Go back home
+            <Link to="/">
+              <CustomButton>Go back home</CustomButton>
             </Link>
             <Link
               to={"/contact-us"}
