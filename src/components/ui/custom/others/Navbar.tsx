@@ -8,10 +8,11 @@ import {
   MenuItems,
   Transition,
 } from "@headlessui/react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { Fragment } from "react";
 import { ModeToggle } from "../../mode-toggle";
+import CustomButton from "../customUI/CustomButton";
 import MobileMenuButton from "./MobileMenuButton";
 import NavLogo from "./NavLogo";
 
@@ -61,6 +62,12 @@ export default function Navbar() {
               <div className="flex items-center lg:hidden">
                 <MobileMenuButton open={open} />
               </div>
+              <div>
+                <Link to="/login">
+                  <CustomButton> Login </CustomButton>
+                </Link>
+              </div>
+
               <Menu as="div" className="relative ml-4 flex-shrink-0">
                 <div>
                   <MenuButton className="flex rounded-full text-sm bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
