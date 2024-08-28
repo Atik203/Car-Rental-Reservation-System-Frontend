@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 
 type TCustomSingleSelectProps = {
   name: string;
@@ -31,9 +31,12 @@ const CustomSingleSelect = ({
   options,
   description,
 }: TCustomSingleSelectProps) => {
+  const { control } = useFormContext();
+
   return (
     <Controller
       name={name}
+      control={control}
       render={({ field, fieldState: { error } }) => (
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}

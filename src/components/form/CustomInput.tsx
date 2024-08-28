@@ -5,7 +5,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Controller } from "react-hook-form";
+import { FC } from "react";
+import { Controller, useFormContext } from "react-hook-form";
 
 type TCustomInputProps = {
   name: string;
@@ -14,15 +15,19 @@ type TCustomInputProps = {
   type?: string;
 };
 
-const CustomInput = ({
+const CustomInput: FC<TCustomInputProps> = ({
   name,
   label,
   placeholder,
   type = "text",
-}: TCustomInputProps) => {
+}) => {
+  const { control } = useFormContext();
+
   return (
     <Controller
       name={name}
+      control={control}
+      defaultValue=""
       render={({ field, fieldState: { error } }) => (
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}
