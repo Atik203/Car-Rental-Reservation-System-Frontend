@@ -13,12 +13,12 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen mt-10 dark:bg-gray-900">
+    <div className="min-h-screen">
       <Helmet>
         <title>Login</title>
       </Helmet>
       <div className="flex flex-1">
-        <div className="flex flex-1 flex-col justify-center px-2">
+        <div className="flex flex-1 flex-col justify-center px-2 py-16">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
               <h2 className="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100">
