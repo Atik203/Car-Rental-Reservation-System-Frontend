@@ -4,7 +4,7 @@ import Navbar from "../ui/custom/others/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="mx-auto ">
+    <div className="mx-auto">
       <Navbar />
       <div className="max-w-6xl mx-auto min-h-screen">
         <Outlet />
