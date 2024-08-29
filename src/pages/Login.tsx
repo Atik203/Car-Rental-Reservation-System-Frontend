@@ -109,6 +109,25 @@ const Login = () => {
                 </div>
               </div>
             </div>
+            <div className="mt-4">
+              <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
+                By signing up, you agree to our{" "}
+                <Link
+                  to={"/privacy-policy"}
+                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                >
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link
+                  to={"/terms-conditions"}
+                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                >
+                  Terms of Service
+                </Link>
+                .
+              </p>
+            </div>
           </div>
         </div>
         <div className="relative hidden w-0 flex-1 lg:block">
