@@ -1,13 +1,18 @@
 import CustomForm from "@/components/form/CustomForm";
 import CustomInput from "@/components/form/CustomInput";
 import CustomButton from "@/components/ui/custom/customUI/CustomButton";
-
+import { authValidation } from "@/schemas/auth.validation";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log(data);
   };
@@ -36,9 +41,29 @@ const Login = () => {
             </div>
             <div className="mt-8">
               <div>
-                <CustomForm onSubmit={onSubmit}>
-                  <CustomInput name="userName" label="Username" />
-                  <CustomInput name="password" label="Password" type={"text"} />
+                <CustomForm
+                  onSubmit={onSubmit}
+                  resolver={zodResolver(authValidation.loginValidationSchema)}
+                >
+                  <CustomInput name="email" label="email" />
+                  <div className="relative w-full">
+                    <CustomInput
+                      name="password"
+                      label="Password"
+                      type={showPassword ? "text" : "password"}
+                    />
+                    <div
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                      style={{ top: "70%", transform: "translateY(-50%)" }}
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? (
+                        <EyeSlashIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                      ) : (
+                        <EyeIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                      )}
+                    </div>
+                  </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <input
