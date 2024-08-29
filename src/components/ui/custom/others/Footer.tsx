@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { Link } from "react-router-dom";
 import NavLogo from "./NavLogo";
 
 const navigation = {
@@ -19,13 +20,13 @@ const navigation = {
     { name: "About", href: "#" },
     { name: "Blog", href: "#" },
     { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
     { name: "Partners", href: "#" },
   ],
   legal: [
-    { name: "Claim", href: "#" },
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
+    { name: "Claim", href: "/" },
+    { name: "Privacy", href: "/privacy-policy" },
+    { name: "Terms and Conditions", href: "/terms-conditions" },
+    { name: "Policy", href: "/privacy-policy" },
   ],
   social: [
     {
@@ -114,10 +115,13 @@ export default function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                  className="text-white  dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
                 >
                   <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                  <item.icon
+                    className="h-6 w-6 hover:text-primary"
+                    aria-hidden="true"
+                  />
                 </a>
               ))}
             </div>
@@ -133,7 +137,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                        className="text-sm leading-6 hover:underline text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
                       >
                         {item.name}
                       </a>
@@ -150,7 +154,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                        className="text-sm leading-6 hover:underline text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
                       >
                         {item.name}
                       </a>
@@ -167,12 +171,12 @@ export default function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-sm leading-6 text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                      <Link
+                        to={item.href}
+                        className="text-sm leading-6 hover:underline text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -186,7 +190,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
+                        className="text-sm leading-6 hover:underline text-white dark:text-gray-300 hover:text-primary dark:hover:text-primary-light"
                       >
                         {item.name}
                       </a>
