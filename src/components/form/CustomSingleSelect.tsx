@@ -46,7 +46,7 @@ const CustomSingleSelect = ({
                 <SelectValue placeholder={placeholder || "Select an option"} />
               </SelectTrigger>
             </FormControl>
-            <SelectContent>
+            <SelectContent className="bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700">
               {options.map((option) => (
                 <SelectItem key={option.value} value={option.value}>
                   {option.label}

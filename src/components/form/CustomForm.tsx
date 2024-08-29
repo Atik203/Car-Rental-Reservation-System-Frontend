@@ -40,7 +40,10 @@ const CustomForm = ({
 
   return (
     <FormProvider {...methods}>
-      <form className="space-y-6" onSubmit={methods.handleSubmit(submit)}>
+      <form
+        className="space-y-6 w-full"
+        onSubmit={methods.handleSubmit(submit)}
+      >
         {children}
       </form>
     </FormProvider>

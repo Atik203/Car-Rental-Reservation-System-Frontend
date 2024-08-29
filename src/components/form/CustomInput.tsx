@@ -13,6 +13,7 @@ type TCustomInputProps = {
   label?: string;
   placeholder?: string;
   type?: string;
+  className?: string;
 };
 
 const CustomInput: FC<TCustomInputProps> = ({
@@ -20,6 +21,7 @@ const CustomInput: FC<TCustomInputProps> = ({
   label,
   placeholder,
   type = "text",
+  className,
 }) => {
   const { control } = useFormContext();
 
@@ -29,10 +31,15 @@ const CustomInput: FC<TCustomInputProps> = ({
       control={control}
       defaultValue=""
       render={({ field, fieldState: { error } }) => (
-        <FormItem>
+        <FormItem className="w-full">
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input {...field} placeholder={placeholder || name} type={type} />
+            <Input
+              {...field}
+              placeholder={placeholder || name}
+              type={type}
+              className={`bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 ${className}`}
+            />
           </FormControl>
           {error && <FormMessage>{error.message}</FormMessage>}
         </FormItem>

@@ -7,6 +7,7 @@ export type TCustomMultiSelectProps = {
   name: string;
   options: { value: string; label: string }[];
   placeholder?: string;
+  className?: string;
 };
 
 const CustomMultiSelect: FC<TCustomMultiSelectProps> = ({
@@ -14,6 +15,7 @@ const CustomMultiSelect: FC<TCustomMultiSelectProps> = ({
   name,
   options,
   placeholder = "Select options",
+  className,
 }) => {
   const { control } = useFormContext();
 
@@ -30,6 +32,7 @@ const CustomMultiSelect: FC<TCustomMultiSelectProps> = ({
             value={field.value || []}
             onChange={field.onChange}
             placeholder={placeholder}
+            className={`bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 ${className}`}
           />
           {error && <small style={{ color: "red" }}>{error.message}</small>}
         </div>
