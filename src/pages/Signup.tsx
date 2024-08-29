@@ -1,96 +1,123 @@
 import CustomForm from "@/components/form/CustomForm";
 import CustomInput from "@/components/form/CustomInput";
 import CustomButton from "@/components/ui/custom/customUI/CustomButton";
-
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log(data);
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="px-4 sm:px-6 lg:px-8">
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
-      <div className="flex flex-1">
-        <div className="flex flex-1 flex-col justify-center px-2 py-16">
-          <div className="mx-auto w-full max-w-sm lg:w-96">
-            <div>
-              <h2 className="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100">
-                Sign up your account
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
-                Already have an account?{" "}
-                <Link
-                  to={"/login"}
-                  className="font-semibold hover:underline text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-                >
-                  Login
-                </Link>
-              </p>
-            </div>
-            <div className="mt-8">
-              <div>
-                <CustomForm onSubmit={onSubmit}>
-                  <CustomInput name="userName" label="Username" />
-                  <CustomInput name="password" label="Password" type={"text"} />
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <input
-                        id="remember-me"
-                        name="remember-me"
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-indigo-500"
-                      />
-                      <Link to={"/terms-conditions"}>
-                        <label
-                          htmlFor="remember-me"
-                          className="ml-3 block text-sm leading-6 text-gray-700 dark:text-gray-300"
-                        >
-                          Term and Conditions
-                        </label>
-                      </Link>
-                    </div>
-                  </div>
-                  <div>
-                    <CustomButton className="w-full" type="submit">
-                      Sign up
-                    </CustomButton>
-                  </div>
-                </CustomForm>
-              </div>
-            </div>
-            <div className="mt-4">
-              <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
-                By signing up, you agree to our{" "}
-                <Link
-                  to={"/privacy-policy"}
-                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-                >
-                  Privacy Policy
-                </Link>{" "}
-                and{" "}
-                <Link
-                  to={"/terms-conditions"}
-                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-                >
-                  Terms of Service
-                </Link>
-                .
-              </p>
-            </div>
+      <div className="px-2 py-12">
+        <div className="mx-auto w-full max-w-4xl">
+          <div className="text-center">
+            <h2 className="mt-4 text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100">
+              Sign up your account
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
+              Already have an account?{" "}
+              <Link
+                to={"/login"}
+                className="font-semibold hover:underline text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+              >
+                Login
+              </Link>
+            </p>
           </div>
-        </div>
-        <div className="relative hidden w-0 flex-1 lg:block">
-          <img
-            className="absolute inset-0 w-3/4 object-cover mx-auto"
-            src="https://i.ibb.co/JRSm35S/login.png"
-            alt=""
-          />
+          <div className="mt-8">
+            <CustomForm onSubmit={onSubmit}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <CustomInput name="name" label="Full Name" />
+                <CustomInput name="email" label="Email" type="email" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <CustomInput name="phone" label="Phone Number" />
+                <CustomInput name="address" label="Address" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <div className="relative w-full">
+                  <CustomInput
+                    name="password"
+                    label="Password"
+                    type={showPassword ? "text" : "password"}
+                  />
+                  <div
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                    style={{ top: "70%", transform: "translateY(-50%)" }}
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeSlashIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    ) : (
+                      <EyeIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    )}
+                  </div>
+                </div>
+                <CustomInput
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  type="password"
+                />
+              </div>
+              <div className="flex items-center justify-between w-96 mx-auto mt-4">
+                <div className="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-indigo-500"
+                  />
+                  <label
+                    htmlFor="remember-me"
+                    className="ml-3 block text-sm leading-6 text-gray-700 dark:text-gray-300"
+                  >
+                    I agree to the{" "}
+                    <Link
+                      to={"/terms-conditions"}
+                      className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                    >
+                      Terms and Conditions
+                    </Link>
+                  </label>
+                </div>
+              </div>
+              <div className="mt-6 text-center">
+                <CustomButton className="w-full sm:w-96" type="submit">
+                  Sign up
+                </CustomButton>
+              </div>
+            </CustomForm>
+          </div>
+          <div className="mt-4 w-full sm:w-96 text-center mx-auto">
+            <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
+              By signing up, you agree to our{" "}
+              <Link
+                to={"/privacy-policy"}
+                className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+              >
+                Privacy Policy
+              </Link>{" "}
+              and{" "}
+              <Link
+                to={"/terms-conditions"}
+                className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+              >
+                Terms of Service
+              </Link>
+              .
+            </p>
+          </div>
         </div>
       </div>
     </div>
