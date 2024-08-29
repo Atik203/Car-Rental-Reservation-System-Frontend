@@ -1,16 +1,25 @@
 import CustomForm from "@/components/form/CustomForm";
 import CustomInput from "@/components/form/CustomInput";
 import CustomButton from "@/components/ui/custom/customUI/CustomButton";
+import { authValidation } from "@/schemas/auth.validation";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [agreeTerms, setAgreeTerms] = useState(false);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const toastId = toast.loading("Signing up...");
+    if (!agreeTerms) {
+      toast.error("Please agree to the terms and conditions", { id: toastId });
+      return;
+    }
     console.log(data);
   };
 
@@ -36,7 +45,10 @@ const SignUp = () => {
             </p>
           </div>
           <div className="mt-8">
-            <CustomForm onSubmit={onSubmit}>
+            <CustomForm
+              onSubmit={onSubmit}
+              resolver={zodResolver(authValidation.signUpValidationSchema)}
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <CustomInput name="name" label="Full Name" />
                 <CustomInput name="email" label="Email" type="email" />
@@ -54,7 +66,7 @@ const SignUp = () => {
                   />
                   <div
                     className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
-                    style={{ top: "70%", transform: "translateY(-50%)" }}
+                    style={{ top: "50%", transform: "translateY(-10%)" }}
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
@@ -76,6 +88,7 @@ const SignUp = () => {
                     id="remember-me"
                     name="remember-me"
                     type="checkbox"
+                    onClick={() => setAgreeTerms(!agreeTerms)}
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 dark:border-gray-700 dark:bg-gray-800 dark:focus:ring-indigo-500"
                   />
                   <label
@@ -92,8 +105,13 @@ const SignUp = () => {
                   </label>
                 </div>
               </div>
+
               <div className="mt-6 text-center">
-                <CustomButton className="w-full sm:w-96" type="submit">
+                <CustomButton
+                  disabled={!agreeTerms}
+                  className="w-full sm:w-96"
+                  type="submit"
+                >
                   Sign up
                 </CustomButton>
               </div>
