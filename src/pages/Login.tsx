@@ -25,10 +25,10 @@ const Login = () => {
                 Login in to your account
               </h2>
               <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
-                Not a member?{" "}
+                Don't have a account sign-up now?{" "}
                 <Link
                   to={"/sign-up"}
-                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                  className="font-semibold hover:underline text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                 >
                   Sign up
                 </Link>
@@ -111,7 +111,7 @@ const Login = () => {
             </div>
             <div className="mt-4">
               <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
-                By signing up, you agree to our{" "}
+                By signing in, you agree to our{" "}
                 <Link
                   to={"/privacy-policy"}
                   className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
