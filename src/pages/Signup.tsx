@@ -1,26 +1,43 @@
 import CustomForm from "@/components/form/CustomForm";
 import CustomInput from "@/components/form/CustomInput";
 import CustomButton from "@/components/ui/custom/customUI/CustomButton";
+import { useSignUpMutation } from "@/redux/features/auth/authApi";
+
 import { authValidation } from "@/schemas/auth.validation";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FieldValues, SubmitHandler } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
+  const navigate = useNavigate();
+  const [SignUp] = useSignUpMutation();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const toastId = toast.loading("Signing up...");
     if (!agreeTerms) {
-      toast.error("Please agree to the terms and conditions", { id: toastId });
+      toast.error("Please agree to the terms and conditions");
       return;
     }
-    console.log(data);
+    const toastId = toast.loading("Signing up...");
+    try {
+      const submitData = { role: "user", ...data };
+
+      const result = await SignUp(submitData).unwrap();
+
+      if (result.success) {
+        toast.success(result.message, { id: toastId });
+        navigate("/login");
+      } else {
+        toast.error(result.message, { id: toastId });
+      }
+    } catch (error) {
+      toast.error("Something went wrong...", { id: toastId });
+    }
   };
 
   return (

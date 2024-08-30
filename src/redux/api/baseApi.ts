@@ -12,7 +12,7 @@ import { logout, setUser } from "../features/auth/authSlice";
 import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api/v1",
+  baseUrl: import.meta.env.VITE_BASE_URL,
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
@@ -37,7 +37,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     toast.error((result?.error?.data as { message?: string })?.message);
   }
   if (result.error?.status === 401) {
-    const res = await fetch("http://localhost:5000/api/v1/auth/refresh-token", {
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL}/refresh-token/`, {
       method: "POST",
       credentials: "include",
     });
@@ -66,5 +66,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
+  tagTypes: ["User", "Car", "Booking"],
   endpoints: () => ({}),
 });

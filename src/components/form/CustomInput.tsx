@@ -39,6 +39,7 @@ const CustomInput: FC<TCustomInputProps> = ({
               placeholder={placeholder || name}
               type={type}
               className={`bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 ${className}`}
+              autoComplete="on"
             />
           </FormControl>
           {error && <FormMessage>{error.message}</FormMessage>}
