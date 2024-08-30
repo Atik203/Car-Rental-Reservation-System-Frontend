@@ -1,8 +1,10 @@
+import UserDashboard from "@/pages/user/UserDashboard";
+
 export const userPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
-    element: "COMPONENT_NAME",
+    element: <UserDashboard />,
   },
   {
     name: "User Management",

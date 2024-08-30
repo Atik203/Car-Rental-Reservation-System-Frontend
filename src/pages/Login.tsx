@@ -11,13 +11,14 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [Login] = useLoginMutation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const toastId = toast.loading("Logging in...");
@@ -27,7 +28,7 @@ const Login = () => {
       if (result.success) {
         dispatch(setUser({ user: result.data, token: result.token }));
         toast.success(result.message, { id: toastId });
-        // navigate("/dashboard");
+        navigate(`/${result.data.role}/dashboard`);
       } else {
         toast.error(result.message, { id: toastId });
       }
