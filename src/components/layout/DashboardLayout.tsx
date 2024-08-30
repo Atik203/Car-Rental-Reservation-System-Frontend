@@ -1,6 +1,7 @@
 import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 // import Navbar from "../ui/custom/others/Navbar";
+import Navbar from "../ui/custom/others/Navbar";
 import Sidebar from "./Sidebar";
 
 const { Content } = Layout;
@@ -10,8 +11,7 @@ const DashboardLayout = () => {
     <Layout style={{ minHeight: "100vh", overflow: "hidden" }}>
       <Sidebar />
       <Layout>
-        {/* <Navbar /> */}
-
+        <Navbar />
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{

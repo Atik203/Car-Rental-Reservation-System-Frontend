@@ -10,6 +10,8 @@ import {
 } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
 
+import { useCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppSelector } from "@/redux/hooks";
 import { Fragment } from "react";
 import { ModeToggle } from "../../mode-toggle";
 import CustomButton from "../customUI/CustomButton";
@@ -49,8 +51,7 @@ const MenuItemsComponent = () => (
 );
 
 export default function Navbar() {
-  const user = null;
-
+  const user = useAppSelector(useCurrentUser);
   return (
     <Disclosure as="nav" className="px-0 lg:px-4">
       {({ open }) => (
