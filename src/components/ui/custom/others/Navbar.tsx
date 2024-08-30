@@ -52,6 +52,7 @@ const MenuItemsComponent = () => (
 
 export default function Navbar() {
   const user = useAppSelector(useCurrentUser);
+
   return (
     <Disclosure as="nav" className="px-0 lg:px-4">
       {({ open }) => (
@@ -93,7 +94,7 @@ export default function Navbar() {
                           <MenuItem>
                             {({ active }) => (
                               <NavLink
-                                to={"/dashboard/home"}
+                                to={`${user?.role}/dashboard/`}
                                 className={classNames(
                                   active ? "bg-gray-100 dark:bg-gray-700" : "",
                                   "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300"
