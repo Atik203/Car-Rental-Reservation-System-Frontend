@@ -1,4 +1,7 @@
+import { useCurrentToken } from "@/redux/features/auth/authSlice";
+import { useAppSelector } from "@/redux/hooks";
 import { adminPaths } from "@/routes/admin.routes";
+import { verifyToken } from "@/utils/verifyToken";
 import {
   ArrowLeftEndOnRectangleIcon,
   ArrowRightStartOnRectangleIcon,
@@ -10,9 +13,21 @@ import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 const { Sider } = Layout;
 
 const Sidebar = () => {
-  const sidebarItems = sidebarItemsGenerator(adminPaths, "dashboard");
-  const [collapsed, setCollapsed] = useState(false);
+  let user;
 
+  const token = useAppSelector(useCurrentToken);
+
+  if (token) {
+    user = verifyToken(token);
+  }
+  let sidebarItems;
+  if (user?.role !== "admin") {
+    sidebarItems = sidebarItemsGenerator(adminPaths, "admin");
+  } else {
+    sidebarItems = sidebarItemsGenerator(adminPaths, "user");
+  }
+
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <Sider
       breakpoint="lg"
