@@ -1,3 +1,4 @@
+import { ConfigProvider, theme as antdTheme } from "antd";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "dark" | "light" | "system";
@@ -30,6 +31,8 @@ export function ThemeProvider({
     () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
 
+  const [effectiveTheme, setEffectiveTheme] = useState<Theme>(theme);
+
   useEffect(() => {
     const root = window.document.documentElement;
 
@@ -42,10 +45,12 @@ export function ThemeProvider({
         : "light";
 
       root.classList.add(systemTheme);
+      setEffectiveTheme(systemTheme);
       return;
     }
 
     root.classList.add(theme);
+    setEffectiveTheme(theme);
   }, [theme]);
 
   const value = {
@@ -56,9 +61,18 @@ export function ThemeProvider({
     },
   };
 
+  const { defaultAlgorithm, darkAlgorithm } = antdTheme;
+
   return (
     <ThemeProviderContext.Provider {...props} value={value}>
-      {children}
+      <ConfigProvider
+        theme={{
+          algorithm:
+            effectiveTheme === "dark" ? darkAlgorithm : defaultAlgorithm,
+        }}
+      >
+        {children}
+      </ConfigProvider>
     </ThemeProviderContext.Provider>
   );
 }
