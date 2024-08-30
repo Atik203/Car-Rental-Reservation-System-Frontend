@@ -1,11 +1,12 @@
 import { useCurrentToken } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { adminPaths } from "@/routes/admin.routes";
+import { userPaths } from "@/routes/user.routes";
 import { verifyToken } from "@/utils/verifyToken";
 import {
   ArrowLeftEndOnRectangleIcon,
   ArrowRightStartOnRectangleIcon,
-} from "@heroicons/react/24/outline";
+} from "@heroicons/react/24/solid";
 import { Layout, Menu, MenuProps } from "antd";
 import { useState } from "react";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
@@ -20,11 +21,12 @@ const Sidebar = () => {
   if (token) {
     user = verifyToken(token);
   }
+
   let sidebarItems;
-  if (user?.role !== "admin") {
+  if (user?.role === "admin") {
     sidebarItems = sidebarItemsGenerator(adminPaths, "admin");
-  } else {
-    sidebarItems = sidebarItemsGenerator(adminPaths, "user");
+  } else if (user?.role === "user") {
+    sidebarItems = sidebarItemsGenerator(userPaths, "user");
   }
 
   const [collapsed, setCollapsed] = useState(false);
@@ -32,7 +34,6 @@ const Sidebar = () => {
     <Sider
       breakpoint="lg"
       collapsedWidth={50}
-      theme="light"
       className="sider-style"
       collapsible
       collapsed={collapsed}
@@ -44,9 +45,15 @@ const Sidebar = () => {
         onClick={() => setCollapsed(!collapsed)}
       >
         {collapsed ? (
-          <ArrowRightStartOnRectangleIcon className="w-8 h-8" title="Open" />
+          <ArrowRightStartOnRectangleIcon
+            className="w-8 h-8 text-black dark:text-white"
+            title="Open"
+          />
         ) : (
-          <ArrowLeftEndOnRectangleIcon className="w-8 h-8" title="Close" />
+          <ArrowLeftEndOnRectangleIcon
+            className="w-8 h-8 text-black dark:text-white"
+            title="Close"
+          />
         )}
       </div>
 

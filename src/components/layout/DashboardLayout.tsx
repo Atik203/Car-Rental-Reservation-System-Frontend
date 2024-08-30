@@ -1,6 +1,5 @@
 import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
-// import Navbar from "../ui/custom/others/Navbar";
 import Navbar from "../ui/custom/others/Navbar";
 import Sidebar from "./Sidebar";
 

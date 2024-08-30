@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 .sider-style {
-  background-color: rgb(243, 246, 243) !important;
-  border-right: 1px solid lightgray !important;
-  box-shadow: 2px 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  background-color: var(--sider-background) !important;
+  border-right: 1px solid var(--sider-border) !important;
+  box-shadow: 2px 0.5rem 1rem var(--sider-box-shadow) !important;
   padding: 1rem 0 !important;
   transition: all 0.3s ease !important;
   overflow-x: hidden !important;
@@ -17,7 +17,7 @@
   font-weight: 500;
   border-radius: var(--radius) !important;
   transition: background-color 0.3s ease !important;
-  padding: 3px 0 I !important;
+  padding: 3px 0 !important;
   overflow-x: hidden !important;
 }
 
@@ -35,6 +35,20 @@
   .sider-menu-style {
     padding: 2px 0 !important;
   }
+}
+
+/* Light mode variables */
+:root {
+  --sider-background: rgba(243, 246, 243, 0.83);
+  --sider-border: lightgray;
+  --sider-box-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode variables */
+.dark {
+  --sider-background: rgb(19, 18, 18);
+  --sider-border: rgb(57, 55, 55);
+  --sider-box-shadow: rgba(0, 0, 0, 0.5);
 }
 
 .toast-success {
