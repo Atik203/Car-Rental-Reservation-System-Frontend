@@ -10,9 +10,10 @@ import {
 } from "@headlessui/react";
 import { Link, NavLink } from "react-router-dom";
 
-import { useCurrentUser } from "@/redux/features/auth/authSlice";
-import { useAppSelector } from "@/redux/hooks";
+import { logout, useCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Fragment } from "react";
+import { toast } from "sonner";
 import { ModeToggle } from "../../mode-toggle";
 import CustomButton from "../customUI/CustomButton";
 import MobileMenuButton from "./MobileMenuButton";
@@ -57,6 +58,18 @@ const MenuItemsComponent = () => (
 
 export default function Navbar() {
   const user = useAppSelector(useCurrentUser);
+  console.log(user);
+
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    const toastId = toast.loading("Logging out...");
+
+    setTimeout(() => {
+      dispatch(logout());
+      toast.success("Logged out successfully", { id: toastId });
+    }, 1000);
+  };
 
   return (
     <Disclosure as="nav" className="px-0 lg:px-4">
@@ -95,7 +108,18 @@ export default function Navbar() {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-gray-800 dark:text-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <MenuItems className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-gray-800 dark:text-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <MenuItems>
+                            <div className="px-4 py-2 space-y-2">
+                              <h3 className="text-primary font-medium">
+                                {user.name}
+                              </h3>
+                              <p className="text-sm text-gray-500 dark:text-gray-400">
+                                {user.email}
+                              </p>
+                            </div>
+                          </MenuItems>
+
                           {userItems?.map((item) => (
                             <MenuItem>
                               {({ active }) => (
@@ -114,7 +138,10 @@ export default function Navbar() {
                             </MenuItem>
                           ))}
                           <MenuItem>
-                            <p className="pl-4 text-sm text-red-600 dark:text-red-400 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <p
+                              onClick={handleLogout}
+                              className="pl-4 py-2 text-sm text-red-600 dark:text-red-400 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+                            >
                               Logout
                             </p>
                           </MenuItem>
