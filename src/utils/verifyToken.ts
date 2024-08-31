@@ -1,6 +1,12 @@
-import { TUser } from "@/redux/features/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 
-export const verifyToken = (token: string): TUser => {
+export type TVerifyUser = {
+  email: string;
+  role: string;
+  iat: number;
+  exp: number;
+};
+
+export const verifyToken = (token: string): TVerifyUser => {
   return jwtDecode(token);
 };
