@@ -29,6 +29,11 @@ const menuItems = [
   { name: "Contact Us", to: "/contact-us" },
 ];
 
+const userItems = [
+  { name: "Profile", to: "profile" },
+  { name: "Dashboard", to: "dashboard" },
+];
+
 const MenuItemsComponent = () => (
   <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
     {menuItems.map((item) => (
@@ -91,18 +96,27 @@ export default function Navbar() {
                         leaveTo="transform opacity-0 scale-95"
                       >
                         <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-gray-800 dark:text-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          {userItems?.map((item) => (
+                            <MenuItem>
+                              {({ active }) => (
+                                <NavLink
+                                  to={`${user?.role}/${item.to}/`}
+                                  className={classNames(
+                                    active
+                                      ? "bg-gray-100 dark:bg-gray-700"
+                                      : "",
+                                    "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300"
+                                  )}
+                                >
+                                  {item.name}
+                                </NavLink>
+                              )}
+                            </MenuItem>
+                          ))}
                           <MenuItem>
-                            {({ active }) => (
-                              <NavLink
-                                to={`${user?.role}/dashboard/`}
-                                className={classNames(
-                                  active ? "bg-gray-100 dark:bg-gray-700" : "",
-                                  "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300"
-                                )}
-                              >
-                                Dashboard
-                              </NavLink>
-                            )}
+                            <p className="pl-4 text-sm text-red-600 dark:text-red-400 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700">
+                              Logout
+                            </p>
                           </MenuItem>
                         </MenuItems>
                       </Transition>
