@@ -124,7 +124,7 @@ export default function Navbar() {
                             <MenuItem>
                               {({ active }) => (
                                 <NavLink
-                                  to={`${user?.role}/${item.to}/`}
+                                  to={`/${user.role}/${item.to}`}
                                   className={classNames(
                                     active
                                       ? "bg-gray-100 dark:bg-gray-700"

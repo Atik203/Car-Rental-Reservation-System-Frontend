@@ -1,3 +1,5 @@
+import Profile from "@/pages/Profile";
+
 export const adminPaths = [
   {
     name: "Dashboard",
@@ -19,4 +21,5 @@ export const adminPaths = [
       },
     ],
   },
+  { path: "profile", element: <Profile /> },
 ];

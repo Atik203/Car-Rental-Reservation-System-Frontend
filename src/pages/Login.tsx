@@ -14,6 +14,11 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
+const defaultValues = {
+  email: "atikurrahaman0305@gmail.com",
+  password: "abcd",
+};
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [Login] = useLoginMutation();
@@ -62,6 +67,7 @@ const Login = () => {
             <div className="mt-8">
               <div>
                 <CustomForm
+                  defaultValues={defaultValues}
                   onSubmit={onSubmit}
                   resolver={zodResolver(authValidation.loginValidationSchema)}
                 >

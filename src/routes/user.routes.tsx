@@ -1,3 +1,4 @@
+import Profile from "@/pages/Profile";
 import MyBookings from "@/pages/user/MyBookings";
 import UserDashboard from "@/pages/user/UserDashboard";
 import { HomeIcon } from "@heroicons/react/24/outline";
@@ -19,5 +20,9 @@ export const userPaths = [
         element: <MyBookings />,
       },
     ],
+  },
+  {
+    path: "profile",
+    element: <Profile />,
   },
 ];
