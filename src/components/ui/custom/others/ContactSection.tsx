@@ -3,31 +3,31 @@ import MapEmbed from "./MapEmbed";
 
 export default function ContactSection() {
   return (
-    <div className="pt-8 sm:pt-20 mt-12">
+    <div className="pt-8 sm:pt-20 mt-12 0">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl space-y-8 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
+        <div className="mx-auto max-w-2xl space-y-8 divide-y divide-gray-100 dark:divide-gray-600 lg:mx-0 lg:max-w-none">
           <div className="grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              <h2 className="text-3xl font-bold tracking-tight  dark:text-white">
                 Contact Us
               </h2>
-              <p className="mt-4 leading-7 text-gray-600">
+              <p className="mt-4 leading-7 text-gray-800 dark:text-gray-200">
                 Whether you have questions, need assistance, or want to share
                 feedback, we're here to help. Reach out to us via the contact
                 details below.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
-              <div className="rounded-2xl bg-gray-50 p-6">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">
+              <div className="rounded-2xl bg-gray-50 dark:bg-gray-800 p-6">
+                <h3 className="text-base font-semibold leading-7  dark:text-white">
                   Collaborate
                 </h3>
-                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-800 dark:text-gray-200">
                   <div>
                     <dt className="sr-only">Email</dt>
                     <dd>
                       <a
-                        className="font-semibold text-primary"
+                        className="font-semibold text-primary "
                         href="mailto:collaborate@campershop.com"
                       >
                         collaborate@rentcar.com
@@ -40,16 +40,16 @@ export default function ContactSection() {
                   </div>
                 </dl>
               </div>
-              <div className="rounded-2xl bg-gray-50 p-6">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">
+              <div className="rounded-2xl bg-gray-50 dark:bg-gray-800 p-6">
+                <h3 className="text-base font-semibold leading-7  dark:text-white">
                   Press Inquiries
                 </h3>
-                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-800 dark:text-gray-200">
                   <div>
                     <dt className="sr-only">Email</dt>
                     <dd>
                       <a
-                        className="font-semibold text-primary"
+                        className="font-semibold text-primary "
                         href="mailto:press@campershop.com"
                       >
                         press@rentcar.com
@@ -62,16 +62,16 @@ export default function ContactSection() {
                   </div>
                 </dl>
               </div>
-              <div className="rounded-2xl bg-gray-50 p-6">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">
+              <div className="rounded-2xl bg-gray-50 dark:bg-gray-800 p-6">
+                <h3 className="text-base font-semibold leading-7  dark:text-white">
                   Careers
                 </h3>
-                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-800 dark:text-gray-200">
                   <div>
                     <dt className="sr-only">Email</dt>
                     <dd>
                       <a
-                        className="font-semibold text-primary"
+                        className="font-semibold text-primary "
                         href="mailto:careers@campershop.com"
                       >
                         careers@rencar.com
@@ -84,19 +84,19 @@ export default function ContactSection() {
                   </div>
                 </dl>
               </div>
-              <div className="rounded-2xl bg-gray-50 p-6">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">
+              <div className="rounded-2xl bg-gray-50 dark:bg-gray-800 p-6">
+                <h3 className="text-base font-semibold leading-7  dark:text-white">
                   Support
                 </h3>
-                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-800 dark:text-gray-200">
                   <div>
                     <dt className="sr-only">Email</dt>
                     <dd>
                       <a
-                        className="font-semibold text-primary"
+                        className="font-semibold text-primary "
                         href="mailto:hello@campershop.com"
                       >
-                        support@campershop.com
+                        support@rentcar.com
                       </a>
                     </dd>
                   </div>
@@ -109,7 +109,7 @@ export default function ContactSection() {
             </div>
           </div>
           <div className="flex flex-col items-center space-y-6 py-6">
-            <h2 className="text-2xl font-semibold leading-7 text-gray-900">
+            <h2 className="text-2xl font-semibold leading-7  dark:text-white">
               Follow Us
             </h2>
             <div className="flex justify-center space-x-6 py-4">
@@ -117,7 +117,7 @@ export default function ContactSection() {
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800"
+                className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600"
               >
                 <FaFacebook size={30} />
               </a>
@@ -125,7 +125,7 @@ export default function ContactSection() {
                 href="https://www.twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-600"
+                className="text-blue-400 hover:text-blue-600 dark:text-blue-300 dark:hover:text-blue-500"
               >
                 <FaTwitter size={30} />
               </a>
@@ -133,7 +133,7 @@ export default function ContactSection() {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-600 hover:text-pink-800"
+                className="text-pink-600 hover:text-pink-800 dark:text-pink-400 dark:hover:text-pink-600"
               >
                 <FaInstagram size={30} />
               </a>
@@ -141,28 +141,32 @@ export default function ContactSection() {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-700 hover:text-blue-900"
+                className="text-blue-700 hover:text-blue-900 dark:text-blue-500 dark:hover:text-blue-700"
               >
                 <FaLinkedin size={30} />
               </a>
             </div>
             <div className="text-center mt-8">
-              <p className="text-lg font-semibold text-gray-900">
+              <p className="text-lg font-semibold  dark:text-white">
                 Contact Info
               </p>
-              <p className="text-gray-600">Phone: +1 (555) 789-0123</p>
-              <p className="text-gray-600">Email: contact@campershop.com</p>
-              <p className="text-gray-600">
+              <p className="text-gray-800 dark:text-gray-200">
+                Phone: +1 (555) 789-0123
+              </p>
+              <p className="text-gray-800 dark:text-gray-200">
+                Email: contact@rentcar.com
+              </p>
+              <p className="text-gray-800 dark:text-gray-200">
                 Address: 123 Camping Road, Adventure City, CA 90001
               </p>
             </div>
           </div>
           <div className="px-4 mx-auto">
             <div className="my-4">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+              <h2 className="text-3xl font-bold tracking-tight  dark:text-white">
                 Our Location
               </h2>
-              <p className="mt-4 leading-7 text-gray-600">
+              <p className="mt-4 leading-7 text-gray-800 dark:text-gray-200">
                 Find us at our store location using the map below:
               </p>
             </div>
