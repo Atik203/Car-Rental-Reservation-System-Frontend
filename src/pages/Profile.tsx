@@ -7,8 +7,8 @@ const Profile = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen ">
-      <div className="profile-container p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-md w-full">
-        <div className="profile-header flex flex-col items-center mb-6">
+      <div className=" p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-md w-full">
+        <div className="flex flex-col items-center mb-6">
           <img
             className="h-24 w-24 rounded-full border-4 border-indigo-500"
             src="https://img.icons8.com/officel/32/test-account.png"
@@ -21,7 +21,7 @@ const Profile = () => {
             <p className="text-gray-600 dark:text-gray-400">{user?.email}</p>
           </div>
         </div>
-        <div className="profile-details mb-6 text-center">
+        <div className="mb-6 text-center">
           <p className="text-gray-700 dark:text-gray-300">
             <strong>Role:</strong> {user?.role}
           </p>
