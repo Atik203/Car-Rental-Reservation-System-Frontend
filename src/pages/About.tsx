@@ -99,21 +99,21 @@ export default function About() {
               fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
             />
           </svg>
-
           <div className="overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 pb-24 pt-16 lg:px-8 md:pt-12 lg:pt-0 lg:-mt-12">
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                   <h1 className="text-4xl font-bold tracking-tight dark:text-white sm:text-6xl">
-                    Experience the Great Outdoors with Us.
+                    Discover the Joy of Driving with Us.
                   </h1>
                   <p className="relative mt-6 text-lg leading-8 text-gray-800 dark:text-gray-200 sm:max-w-md lg:max-w-none">
-                    Discover the best camping gear and advice to make your
-                    outdoor adventures unforgettable. From tents and sleeping
-                    bags to cooking equipment and hiking tips, we have
-                    everything you need for a perfect camping trip. Join our
-                    community of nature enthusiasts and explore the wild with
-                    confidence and ease.
+                    Explore our wide range of rental cars to suit every need and
+                    budget. From compact cars for city driving to luxury
+                    vehicles for special occasions, we have the perfect car for
+                    you. Enjoy seamless booking, exceptional customer service,
+                    and the freedom to travel wherever you want. Join our
+                    community of satisfied customers and experience the
+                    convenience and reliability of our car rental services.
                   </p>
                 </div>
                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -173,14 +173,14 @@ export default function About() {
         <div className="">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:pt-24 lg:pb-32">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight  dark:text-white sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight dark:text-white sm:text-4xl">
                 Our Mission
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-800 dark:text-gray-200">
-                We are committed to providing the best camping gear and advice
-                to make your outdoor adventures safe, enjoyable, and
+                We are committed to providing the best rental cars and services
+                to make your travel experiences safe, enjoyable, and
                 unforgettable. Our mission is to inspire and equip you to
-                explore the great outdoors with confidence and ease.
+                explore new destinations with confidence and ease.
               </p>
             </div>
           </div>
