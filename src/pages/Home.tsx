@@ -1,7 +1,9 @@
+import HeroSection from "@/components/ui/custom/customUI/HeroSection";
+
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="mx-auto">
+      <HeroSection />
     </div>
   );
 };
