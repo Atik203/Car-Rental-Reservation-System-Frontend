@@ -58,7 +58,6 @@ const MenuItemsComponent = () => (
 
 export default function Navbar() {
   const user = useAppSelector(useCurrentUser);
-  console.log(user);
 
   const dispatch = useAppDispatch();
 
