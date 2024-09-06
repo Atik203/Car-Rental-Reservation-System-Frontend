@@ -121,7 +121,7 @@ export default function Navbar() {
                           </MenuItems>
 
                           {userItems?.map((item) => (
-                            <MenuItem>
+                            <MenuItem key={item.name}>
                               {({ active }) => (
                                 <NavLink
                                   to={`/${user.role}/${item.to}`}
