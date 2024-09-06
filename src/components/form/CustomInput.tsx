@@ -14,6 +14,7 @@ type TCustomInputProps = {
   placeholder?: string;
   type?: string;
   className?: string;
+  required?: boolean;
 };
 
 const CustomInput: FC<TCustomInputProps> = ({
@@ -22,6 +23,7 @@ const CustomInput: FC<TCustomInputProps> = ({
   placeholder,
   type = "text",
   className,
+  required = false,
 }) => {
   const { control } = useFormContext();
 
@@ -37,8 +39,9 @@ const CustomInput: FC<TCustomInputProps> = ({
             <Input
               {...field}
               placeholder={placeholder || name}
+              required={required}
               type={type}
-              className={`bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-700 ${className}`}
+              className={`bg-gray-100  dark:bg-gray-800 border-gray-300 dark:border-gray-700 ${className}`}
               autoComplete="on"
             />
           </FormControl>
