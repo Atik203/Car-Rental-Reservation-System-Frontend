@@ -30,6 +30,7 @@ const Sidebar = () => {
   }
 
   const [collapsed, setCollapsed] = useState(false);
+
   return (
     <Sider
       breakpoint="lg"
@@ -39,6 +40,7 @@ const Sidebar = () => {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       trigger={null}
+      width={250}
     >
       <div
         className="flex items-center justify-center ml-2 my-4"

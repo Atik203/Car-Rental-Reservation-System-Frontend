@@ -6,7 +6,7 @@ export interface TRouteItem {
 }
 
 export interface TUserPath {
-  name: string;
+  name?: string;
   path?: string;
   element?: ReactNode;
   children?: TUserPath[];
