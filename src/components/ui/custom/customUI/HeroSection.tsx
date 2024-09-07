@@ -2,19 +2,26 @@ import CustomDatePicker from "@/components/form/CustomDatePicker";
 import CustomForm from "@/components/form/CustomForm";
 import CustomInput from "@/components/form/CustomInput";
 import { ChevronRightIcon } from "lucide-react";
+import { useState } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 import CustomButton from "./CustomButton";
 
 const HeroSection = () => {
+  const [showCar, setShowCar] = useState(false);
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    if (data.location && data.date) {
+      setShowCar(true);
+    } else {
+      setShowCar(false);
+    }
   };
 
   return (
-    <div className="">
+    <div className="px-4 md:px-0 mx-auto">
       <div className="relative">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto">
           <div className="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
             <svg
               className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white dark:fill-black lg:block"
@@ -25,7 +32,7 @@ const HeroSection = () => {
               <polygon points="0,0 90,0 50,100 0,100" />
             </svg>
 
-            <div className="relative px-4 py-20  lg:py-40 lg:pr-0">
+            <div className="relative py-20  lg:py-40 lg:pr-0">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
                 <div className="flex">
                   <div className="relative flex items-center gap-x-4 rounded-full px-4 py-1 text-sm leading-6 text-gray-600 dark:text-gray-300 ring-2 ring-gray-900/10 dark:ring-gray-700 hover:ring-gray-900/20 dark:hover:ring-gray-600">
@@ -36,7 +43,7 @@ const HeroSection = () => {
                       className="h-4 w-px bg-gray-900/10 dark:bg-gray-500"
                       aria-hidden="true"
                     />
-                    <Link to="/booking" className="flex items-center gap-x-1">
+                    <Link to="/cars" className="flex items-center gap-x-1">
                       <span className="absolute inset-0" aria-hidden="true" />
                       <span className="text-gray-600 dark:text-gray-300">
                         View Cars
@@ -59,7 +66,7 @@ const HeroSection = () => {
 
                 <div className="mt-10">
                   <CustomForm onSubmit={onSubmit}>
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center justify-between flex-col md:flex-row gap-4">
                       <CustomInput
                         name="location"
                         type="text"
@@ -74,7 +81,7 @@ const HeroSection = () => {
                         required={true}
                       />
                     </div>
-                    <CustomButton type="submit">Book Now</CustomButton>
+                    <CustomButton type="submit">Find Car</CustomButton>
                   </CustomForm>
                 </div>
               </div>
@@ -89,6 +96,19 @@ const HeroSection = () => {
           />
         </div>
       </div>
+
+      {showCar && (
+        <div>
+          <div className="flex items-center justify-between mt-10">
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+              Cars Available
+            </h2>
+            <Link to="/cars" className="text-primary dark:text-primary-light">
+              View All
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
