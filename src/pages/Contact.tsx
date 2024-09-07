@@ -7,9 +7,10 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 
 export default function Contact() {
-  const onSubmit = (data: any) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
   };
 
