@@ -12,46 +12,47 @@ import TitleDescriptionBlock from "../customUI/TitleDescriptionBlock";
 const reviews = [
   {
     content:
-      "This tent is amazing! I took it on my camping trip and it withstood the weather perfectly.",
+      "Renting a car through RentCar was quick and easy. The vehicle was in perfect condition and made my trip hassle-free.",
     name: "Alice Johnson",
     image:
       "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80",
-    designation: "Camping Enthusiast",
+    designation: "Frequent Traveler",
     rating: 5,
   },
   {
     content:
-      "Great quality backpacks. They are very comfortable and have lots of space.",
+      "I needed a spacious car for a road trip, and RentCar provided exactly what I was looking for. Great service!",
     name: "David Williams",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80",
-    designation: "Backpacker",
+    designation: "Road Trip Enthusiast",
     rating: 5,
   },
   {
     content:
-      "The outdoor clothing line is fantastic. It keeps me warm and dry in all conditions.",
+      "The customer service at RentCar is outstanding. They helped me choose the right car and ensured a smooth rental experience.",
     name: "Emily Davis",
     image:
       "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    designation: "Outdoor Adventurer",
+    designation: "Business Traveler",
     rating: 4,
   },
   {
-    content: "Top-notch camping gear. Durable and reliable for all my trips.",
+    content:
+      "Excellent range of vehicles. I was impressed by how well-maintained the cars are. Definitely will rent again.",
     name: "Michael Brown",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    designation: "Camping Guide",
+    designation: "Frequent Renter",
     rating: 5,
   },
   {
     content:
-      "The footwear collection is great. Comfortable and perfect for long hikes.",
+      "The booking process was smooth and straightforward. I was able to find a car that perfectly matched my needs for a weekend trip.",
     name: "Sophia Wilson",
     image:
       "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    designation: "Hiker",
+    designation: "Weekend Traveler",
     rating: 4,
   },
 ];
@@ -82,7 +83,7 @@ export default function TestimonialSection() {
                     variant="yellow"
                   />
                 </div>
-                <blockquote className="mt-4 text-base md:text-lg font-semibold leading-8 tracking-tight text-gray-900 sm:text-xl sm:leading-9">
+                <blockquote className="mt-4 px-0 lg:px-4 text-base md:text-lg font-semibold leading-8 tracking-tight text-gray-900 sm:text-xl sm:leading-9">
                   <p>{`“${review.content}”`}</p>
                 </blockquote>
                 <figcaption className="mt-8 flex flex-col items-center gap-y-4 sm:flex-row sm:gap-x-4">
