@@ -59,7 +59,7 @@ const reviews = [
 
 export default function TestimonialSection() {
   return (
-    <section className="bg-white px-4 py-12 sm:py-20 md:px-0">
+    <section className="px-4 py-12 sm:py-20 md:px-0">
       <TitleDescriptionBlock
         title="What Our Customers Say"
         description="Don't just take our word for it. Here's what our customers have to say about their experience with our products and services."
@@ -83,20 +83,22 @@ export default function TestimonialSection() {
                     variant="yellow"
                   />
                 </div>
-                <blockquote className="mt-4 px-0 lg:px-4 text-base md:text-lg font-semibold leading-8 tracking-tight text-gray-900 sm:text-xl sm:leading-9">
+                <blockquote className="mt-4 px-0 lg:px-4 text-base md:text-lg font-semibold leading-8 tracking-tight  sm:text-xl sm:leading-9">
                   <p>{`“${review.content}”`}</p>
                 </blockquote>
                 <figcaption className="mt-8 flex flex-col items-center gap-y-4 sm:flex-row sm:gap-x-4">
                   <img
-                    className="h-12 w-12 rounded-full bg-gray-50"
+                    className="h-12 w-12 rounded-full"
                     src={review.image}
                     alt={review.name}
                   />
                   <div className="text-sm leading-6 text-center sm:text-left">
-                    <div className="font-semibold text-gray-900">
-                      {review.name}
-                    </div>
-                    <div className="mt-0.5 text-gray-600">
+                    <div className="font-semibold ">{review.name}</div>
+                    <div
+                      className="mt-0.5 text-gray-600
+                    dark:text-gray-400
+                    "
+                    >
                       {review.designation}
                     </div>
                   </div>
