@@ -1,7 +1,7 @@
 const AllUser = () => {
   return (
     <div>
-      <h1>This is AllUser component</h1>
+      <h1>This is AllUser component page</h1>
     </div>
   );
 };
