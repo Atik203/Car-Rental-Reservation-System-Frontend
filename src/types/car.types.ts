@@ -12,3 +12,23 @@ export interface TCar {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface TAuthorReview {
+  _id?: string;
+  name: string;
+  image: string;
+  comment: string;
+  rating: number;
+}
+
+export interface TReview {
+  _id?: string;
+  averageRating?: number;
+  totalCounts: number;
+  counts: {
+    rating: number;
+    count: number;
+    _id?: string;
+  }[];
+  featured: TAuthorReview[];
+}
