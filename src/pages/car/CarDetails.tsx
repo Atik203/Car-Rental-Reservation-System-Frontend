@@ -1,9 +1,10 @@
 import CarDetailsSkeleton from "@/components/ui/custom/customUI/CarDetailsSkeleton";
+import CustomButton from "@/components/ui/custom/customUI/CustomButton";
 import ReviewSection from "@/components/ui/custom/customUI/ReviewSection";
 import { useGetSingleCarQuery } from "@/redux/features/car/carApi";
 import { TCar } from "@/types/car.types";
 import ReactImageMagnify from "react-image-magnify";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function CarDetails() {
   const { id } = useParams<{ id: string }>();
@@ -96,13 +97,13 @@ export default function CarDetails() {
                   </div>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-6 mb-3">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900 dark:text-white">
                       Features
                     </h3>
                   </div>
-                  <ul className="mt-2 list-disc pl-5 space-y-1">
+                  <ul className="my-1 list-disc pl-5 space-y-1">
                     {car.features.map((feature, index) => (
                       <li key={index} className="text-gray-900 dark:text-white">
                         {feature}
@@ -110,7 +111,9 @@ export default function CarDetails() {
                     ))}
                   </ul>
                 </div>
-
+                <Link to={`/booking/${car._id}`}>
+                  <CustomButton>Book now</CustomButton>
+                </Link>
                 <div className="mt-6">
                   <h3 className="text-sm font-medium text-gray-900 dark:text-white">
                     Description
