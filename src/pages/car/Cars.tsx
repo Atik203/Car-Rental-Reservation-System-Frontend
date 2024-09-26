@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button";
 import CarCardGrid from "@/components/ui/custom/customUI/CarCardGrid";
 import CarCardList from "@/components/ui/custom/customUI/CarCardList";
 import { CardSkeleton } from "@/components/ui/custom/customUI/CardSkeleton";
 import { CardSkeletonList } from "@/components/ui/custom/customUI/CardSkeletonList";
-import CustomButton from "@/components/ui/custom/customUI/CustomButton";
 import NoDataFound from "@/components/ui/custom/customUI/NoDataFound";
 import PaginationComponent from "@/components/ui/custom/customUI/PaginationComponent";
 import { PriceRangeFilter } from "@/components/ui/custom/customUI/PriceRangeFilter";
@@ -251,9 +251,14 @@ const Cars = () => {
                       </Disclosure>
                     ))}
                     <div className="flex mt-2 items-center justify-center">
-                      <CustomButton onClick={handleClearFilters}>
+                      <Button
+                        className="bg-secondary
+                  text-black dark:bg-gray-800 dark:text-white
+                  "
+                        onClick={handleClearFilters}
+                      >
                         Clear Filters
-                      </CustomButton>
+                      </Button>
                     </div>
                   </form>
                 </DialogPanel>
@@ -491,9 +496,14 @@ const Cars = () => {
                   </Disclosure>
                 ))}
                 <div className="flex mt-2 items-center justify-center">
-                  <CustomButton onClick={handleClearFilters}>
+                  <Button
+                    className="bg-secondary
+                  text-black dark:bg-gray-800 dark:text-white
+                  "
+                    onClick={handleClearFilters}
+                  >
                     Clear Filters
-                  </CustomButton>
+                  </Button>
                 </div>
               </form>
 
