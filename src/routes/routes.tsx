@@ -1,7 +1,7 @@
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import MainLayout from "@/components/layout/MainLayout";
 import About from "@/pages/About";
-import Booking from "@/pages/Booking";
+import Booking from "@/pages/booking/Booking";
 import CarDetails from "@/pages/car/CarDetails";
 import Cars from "@/pages/car/Cars";
 import Contact from "@/pages/Contact";
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/booking",
+        path: "/booking/:id",
         element: <Booking />,
       },
       {
