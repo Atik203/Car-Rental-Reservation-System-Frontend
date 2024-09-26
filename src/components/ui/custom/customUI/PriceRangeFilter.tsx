@@ -46,7 +46,7 @@ export function PriceRangeFilter({
         <div className="flex flex-col">
           <label
             htmlFor="min-price"
-            className="text-sm font-medium text-gray-700"
+            className="text-sm font-medium text-gray-700 dark:text-gray-300"
           >
             Min Price
           </label>
@@ -55,13 +55,13 @@ export function PriceRangeFilter({
             type="number"
             value={priceRange[0]}
             onChange={handleMinPriceChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:focus:border-indigo-300 dark:focus:ring-indigo-300"
           />
         </div>
         <div className="flex flex-col">
           <label
             htmlFor="max-price"
-            className="text-sm font-medium text-gray-700"
+            className="text-sm font-medium text-gray-700 dark:text-gray-300"
           >
             Max Price
           </label>
@@ -70,7 +70,7 @@ export function PriceRangeFilter({
             type="number"
             value={priceRange[1]}
             onChange={handleMaxPriceChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:focus:border-indigo-300 dark:focus:ring-indigo-300"
           />
         </div>
       </div>
